@@ -1,0 +1,28 @@
+name: recora
+description: Recora test project
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.18.4 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.5
+  dartz: ^0.10.1
+  flutter_bloc: ^8.1.1
+  flutter_modular: ^5.0.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+  bloc_test: ^9.1.0
+  cached_network_image: ^3.2.2
+  http: ^0.13.5
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/gifs/love-you-heart.gif
