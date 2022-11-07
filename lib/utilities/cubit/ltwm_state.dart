@@ -18,3 +18,8 @@ class LtwmDownloadFailure extends LtwmState {
   final Failure failure;
   LtwmDownloadFailure(this.failure);
 }
+
+class LtwmShowMovieDetails extends LtwmState {
+  final Results details;
+  LtwmShowMovieDetails(this.details);
+}

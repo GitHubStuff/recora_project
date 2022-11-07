@@ -23,6 +23,7 @@ abstract class CubitAbstract {
   void downloadList();
   void refreshList();
   void searchRequest(String searchText);
+  void showMovieDetails(Results movie);
 }
 
 abstract class LtwmCubitAbstract extends Cubit<LtwmState> implements CubitAbstract {
@@ -34,6 +35,9 @@ abstract class LtwmCubitAbstract extends Cubit<LtwmState> implements CubitAbstra
       emit(LtwmShowList());
     });
   }
+
+  @override
+  void showMovieDetails(Results movie) => emit(LtwmShowMovieDetails(movie));
 
   @override
   void refreshList() => emit(LtwmShowList());
@@ -48,11 +52,11 @@ class LtwmCubit extends LtwmCubitAbstract implements CubitAbstract {
   void downloadList() async {
     Future.delayed(K.uxDuration, () async {
       emit(LtwmDownloading());
-      await popularMovies();
+      await _popularMovies();
     });
   }
 
-  Future<void> popularMovies() async {
+  Future<void> _popularMovies() async {
     final NetworkRequests network = Modular.get<NetworkRequests>();
     Either<Failure, Json> result = await network.getPopularMovies(page: _currentPage);
     result.fold((failure) {
@@ -82,7 +86,7 @@ class LtwmCubit extends LtwmCubitAbstract implements CubitAbstract {
 
   Future<void> _performSearch(String searchText) async {
     if (_lastSearch != searchText) {
-      if (searchText.isEmpty) popularMovies();
+      if (searchText.isEmpty) _popularMovies();
       if (searchText.length > _requiredSearchStringLength) {
         final NetworkRequests network = Modular.get<NetworkRequests>();
         Either<Failure, Json> result = await network.getSearchedMovies(searchText);

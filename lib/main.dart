@@ -25,11 +25,11 @@ class AppModule extends Module {
         ChildRoute('/', child: (_, __) => const SplashScreen()),
         ChildRoute(
           ListScreen.route,
-          child: (_, __) => const ListScreen(),
+          child: (_, __) => ListScreen(),
         ),
         ChildRoute(
           DetailScreen.route,
-          child: (_, args) => DetailScreen(result: args.data),
+          child: (_, args) => DetailScreen(movie: args.data),
         )
       ];
 }
