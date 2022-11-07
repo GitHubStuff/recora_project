@@ -30,7 +30,7 @@ john@recorahealth.com.
 - Minimal Test-Driven-Design(TDD): I'm a big user/fan of TDD but this has limited TDD design to focus on the implementation, and because the requirements/scope were narrow enough the initial overhead/time using TDD was not required. The are some tests, but not as many as typical larger scoped project would have.
 - Localization: There is none. This is an **English Only** implementation, without typical allowence for localization. As a compromise: most text is wrapped in *Text* Widgets at the bottom/end of files so the hard-coded text can be changed without *line by line* searching.
 - Constants: There is a *constants.dart* file that has values used across multiple files, otherwise single-use constant values are defined at the top of .dart file they are used in. I use constants because they add to the self-documenting approach I use.
-- Hardware: This app is designed/runs on iPhone/Android phones-simulators. I did not use adapative layout for tablets.
+- Hardware: This app is designed/runs on iPhone/Android phones-simulators.
 - Error Handling: Minimal, but effective for the scope of the app.
 - Search Validation: None, it is assume text is from the keyboard and nothing in place to prefect text injection using copy/paste.
 
